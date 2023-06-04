@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap : parte del body -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        {% load static %}
+        <link rel="shortcut icon" href="{% static 'makween_app/img/logo.png' %}">
+        {% block titulo %}
+        <title>Makween | inicio</title>
+        {% endblock %}
+    </head>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #801515;">
+        <div class="container-fluid">
+           <div class="d-flex align-items-center">
+                <a class="navbar-brand" href="index.html">
+                    <img src="{% static 'makween_app/img/logo.png' %}" alt="Logo" width="120" height="100" class="d-inline-block align-text-top">
+                </a>
+            </div> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <form class="d-flex" id="buscar_mec" style="margin-right: 20px;">
+                    <input class="form-control me-2" type="search" placeholder="Encuentra un mecánico" aria-label="Search" required>
+                    <button class="btn btn-danger" type="submit" style="color: black;">Buscar</button>
+                </form>
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><span style="font-size: 20px;">Inicio</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'nosotros' %}"><span style="font-size: 20px;">Nosotros</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span style="font-size: 20px;">Contacto</span></a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a class="nav-link" href="#"><box-icon type='solid' name='user-circle' color="black" size="md"></box-icon></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <body>    
+        {% block contenido %}
+
+        {% endblock %}
+    </body>
+
+    <!-- Scripts : parte del body -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>
