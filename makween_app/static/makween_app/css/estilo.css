@@ -2,3 +2,26 @@
 .opcion {
     font-size: 20px;
 }
+
+.fotocar{
+    width: 35%;
+    margin-top: 50px;
+    margin-left: 150px;
+    margin-bottom: 50px;
+}
+
+.t1{
+    color: white; 
+    margin-left: 100px;
+}
+
+@media(max-width:769px){
+    .t1{
+        margin-left: 30%;
+        font-size: 30px;
+    }
+
+    .fotocar{
+        margin-left: 30%;
+    }
+}
