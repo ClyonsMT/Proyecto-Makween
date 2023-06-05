@@ -13,11 +13,11 @@
         {% endblock %}
     </head>
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #801515;">
+    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #ce4a4a;">
         <div class="container-fluid">
            <div class="d-flex align-items-center">
                 <a class="navbar-brand" href="{% url 'home' %}">
-                    <img src="{% static 'makween_app/img/logo.png' %}" alt="Logo" width="120" height="100" class="d-inline-block align-text-top">
+                    <img src="{% static 'makween_app/img/logo.png' %}" alt="Logo" width="140" height="100" class="d-inline-block align-text-top">
                 </a>
             </div> 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,10 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <form class="d-flex" id="buscar_mec" style="margin-right: 20px;">
                     <input class="form-control me-2" type="search" placeholder="Encuentra un mecánico" aria-label="Search" required>
-                    <button class="btn btn-danger" type="submit" style="color: black;">Buscar</button>
+                    <button class="btn btn-danger  " type="submit" style="color: black;    border-bottom-color:black ;
+                    border-top-color:black ;
+                    border-left-color:black ;
+                    border-right-color:black ;">Buscar</button>
                 </form>
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
