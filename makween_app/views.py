@@ -6,3 +6,6 @@ def home(request):
 
 def nosotros(request):
     return render(request, 'makween_app/nosotros.html')
+
+def contacto(request):
+    return render(request, 'makween_app/contacto.html')
