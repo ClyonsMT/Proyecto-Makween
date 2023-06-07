@@ -12,7 +12,20 @@
 
 .t1{
     color: white; 
-    margin-left: 100px;
+    text-align: center;
+}
+
+.img_car{
+    height: 550px;
+    display: block;
+    margin:auto;
+}
+
+.black-div{
+    border-color: black;
+    background-color: #021C50;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 @media(max-width:769px){
