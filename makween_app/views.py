@@ -9,3 +9,9 @@ def nosotros(request):
 
 def contactos(request):
     return render(request, 'makween_app/contactos.html')
+
+def login(request):
+    return render(request, 'makween_app/login.html')
+
+def registro(request):
+    return render(request, 'makween_app/registro.html')
