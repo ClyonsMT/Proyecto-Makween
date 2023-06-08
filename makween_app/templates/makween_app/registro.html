@@ -1,0 +1,35 @@
+{% extends 'makween_app/base.html' %}
+
+{% block contenido %}
+<br>
+<h1 class="text-center">Regístrate en Makween</h1><br>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 bordes">
+            <form>
+                <br>   
+                <div class="mb-3">
+                    <h5>Ingresa los siguientes datos:</h5><br>
+                  <label for="exampleInputEmail1" class="form-label">Nombre Completo</label>
+                  <input type="text" class="form-control" id="nombreId" aria-describedby="emailHelp">
+                  <p class="parrafos" id="parrafoId">Ingrese su nombre completo.</p>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="correoId" aria-describedby="emailHelp">
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="contraseñaId">
+                </div>
+                <center><button type="submit" class="btn btn-danger" style="color: black;    border-bottom-color:black ;
+                    border-top-color:black ;
+                    border-left-color:black ;
+                    border-right-color:black ;">Registrarme</button></center><br>
+              </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{% endblock %}

@@ -2,9 +2,68 @@
 .opcion {
     font-size: 20px;
 }
+
+.fotocar{
+    width: 35%;
+    margin-top: 50px;
+    margin-left: 150px;
+    margin-bottom: 50px;
+}
+
+.t1{
+    color: white; 
+    text-align: center;
+}
+
+.img_car{
+    height: 550px;
+    display: block;
+    margin:auto;
+}
+
+.black-div{
+    border-color: black;
+    background-color: #021C50;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+@media(max-width:769px){
+    .t1{
+        margin-left: 30%;
+        font-size: 30px;
+    }
+
+    .fotocar{
+        margin-left: 30%;
+    }
+}
+
+/*estilos login y registro*/
 .bordes{
-    border-bottom-color:black ;
-    border-top-color:black ;
-    border-left-color:black ;
-    border-right-color:black ;
+    border-style: solid;
+    border-radius: 5%;
+    border-color: rgb(182, 28, 28);
+    background-color: rgb(247, 170, 169);
+    background-size: cover;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+}
+.parrafos{
+    font-size: 10px;
+    font-weight: lighter;
+}
+.contenedor{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+}
+.texto{
+    color: aliceblue;
+    font-weight: bolder;
+    font-variant: small-caps;
 }
