@@ -46,11 +46,16 @@
     border-color: rgb(182, 28, 28);
     background-color: rgb(247, 170, 169);
     background-size: cover;
-    width: 25%;
+    width: 400px;
     display: flex;
     justify-content: center;
-    padding: 1%;
+    padding: 2px;
 }
+
+.form {
+    width: 300px;
+}
+
 .parrafos{
     font-size: 10px;
     font-weight: lighter;
