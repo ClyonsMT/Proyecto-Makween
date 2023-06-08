@@ -1,3 +1,4 @@
+//validaciones registro
 //validacion nombre
 $("#nombreId").keyup(function(){
     var cantidad = $("#nombreId").val().length;
@@ -36,14 +37,14 @@ $("#correoId").keyup(function(){
             "color":"green",
             "fontSize":"10px"
         });
-        $("#correoId").removeClass("is-valid").addClass("is-invalid");
+        $("#correoId").removeClass("is-invalid").addClass("is-valid");
       } else {
         $("#parrafoId1").text("Correo electrónico erróneo.");
         $("#parrafoId1").css({
             "color":"red",
             "fontSize":"10px"   
         });
-        $("#correoId").removeClass("is-invalid").addClass("is-valid");
+        $("#correoId").removeClass("is-valid").addClass("is-invalid");
       }    
 });
 
@@ -57,17 +58,39 @@ $("#contraseñaId").keyup(function(){
     var isValid = pass.length >= 6 && pass.length <= 12 && hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar;
     if (!isValid) {
         $("#parrafoId2").text("La contraseña debe tener entre 6 y 12 caracteres y debe incluir una mayúscula, una minúscula, al menos un número y un caracter especial (!@#$%^&*).");
-        $("#parrafoId1").css({
+        $("#parrafoId2").css({
             "color":"red",
             "fontSize":"10px"
         });
         $("#contraseñaId").removeClass("is-valid").addClass("is-invalid");
     } else {
         $("#parrafoId2").text("Contraseña agregada correctamente.");
-        $("#parrafoId1").css({
+        $("#parrafoId2").css({
             "color":"green",
             "fontSize":"10px"
         });
         $("#contraseñaId").removeClass("is-invalid").addClass("is-valid");
     }
+});
+
+//validaciones login
+//validacion correo
+$("#correoLoginId").keyup(function(){
+    var correoLogin = $("#correoLoginId").val();
+    var regexLogin = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (regexLogin.test(correoLogin)) {
+        $("#parrafoLoginId").text("Correo electrónico válido.");
+        $("#parrafoLoginId").css({
+            "color":"green",
+            "fontSize":"10px"
+        });
+        $("#correoLoginId").removeClass("is-invalid").addClass("is-valid");
+      } else {
+        $("#parrafoLoginId").text("Correo electrónico erróneo.");
+        $("#parrafoLoginId").css({
+            "color":"red",
+            "fontSize":"10px"   
+        });
+        $("#correoLoginId").removeClass("is-valid").addClass("is-invalid");
+      }    
 });
