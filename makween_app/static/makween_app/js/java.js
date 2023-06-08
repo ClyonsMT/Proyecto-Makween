@@ -25,19 +25,20 @@ $("#nombreId").keyup(function(){
         $("#nombreId").removeClass("is-invalid").addClass("is-valid");
     }
 });
+
 //validacion correo
 $("#correoId").keyup(function(){
-    var correo = $(this).val();;
+    var correo = $("#correoId").val();
     var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (regex.test(correo)) {
-        $("#parrafoId").text("Correo electrónico ingresado correctamente.");
-        $("#parrafoId").css({
+        $("#parrafoId1").text("Correo electrónico ingresado correctamente.");
+        $("#parrafoId1").css({
             "color":"green",
             "fontSize":"10px"
         });
       } else {
-        $("#parrafoId").text("Correo electrónico erróneo.");
-        $("#parrafoId").css({
+        $("#parrafoId1").text("Correo electrónico erróneo.");
+        $("#parrafoId1").css({
             "color":"red",
             "fontSize":"10px"
         });
