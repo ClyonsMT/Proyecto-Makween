@@ -26,12 +26,20 @@ $("#nombreId").keyup(function(){
     }
 });
 //validacion correo
-/*
-var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-var email = "example@example.com";
-if (emailRegex.test(email)) {
-  console.log("El correo electrónico es válido.");
-} else {
-  console.log("El correo electrónico no es válido.");
-}
-*/
+$("#correoId").keyup(function(){
+    var correo = $(this).val();;
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (regex.test(correo)) {
+        $("#parrafoId").text("Correo electrónico ingresado correctamente.");
+        $("#parrafoId").css({
+            "color":"green",
+            "fontSize":"10px"
+        });
+      } else {
+        $("#parrafoId").text("Correo electrónico erróneo.");
+        $("#parrafoId").css({
+            "color":"red",
+            "fontSize":"10px"
+        });
+      }    
+});
