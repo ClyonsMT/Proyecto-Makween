@@ -1,12 +1,9 @@
 {% extends 'makween_app/base.html' %}
 
 {% block contenido %}
-<br>
-<h1 class="text-center">Regístrate en Makween</h1><br>
-<div class="container">
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 bordes">
+<div class="contenedor" style="background-image: url('../../static/makween_app/img/fondo.jpg'); height: 100dvh;">
+  <br><h1 class="text-center texto">Regístrate en Makween</h1><br>
+          <div class="bordes">
             <form>
                 <br>   
                 <div class="mb-3">
@@ -18,6 +15,7 @@
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
                     <input type="email" class="form-control" id="correoId" aria-describedby="emailHelp">
+                    <p class="parrafos" id="parrafoId">Ingrese su correo electrónico.</p>
                   </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Contraseña</label>
@@ -28,8 +26,6 @@
                     border-left-color:black ;
                     border-right-color:black ;">Registrarme</button></center><br>
               </form>
-        </div>
-        <div class="col-4"></div>
-    </div>
+            </div>  
 </div>
 {% endblock %}
