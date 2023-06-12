@@ -116,5 +116,24 @@ $("#correoLoginId").keyup(function(){
       }    
 });
 
-//validacion del rut
-//HACER YA QUE GIT ME LO BORRO :(
+//Validacion del rut
+$("#rutId").blur(function(){
+    var rut = $("#rutId").val();
+    const formatoRut = rut.replace(/^(\d{1,2})(\d{3})(\d{3})([\dkK])?$/, '$1.$2.$3-$4');
+    $("#rutId").val(formatoRut);
+    if (formatoRut.test(rut)) {
+        $("#parrafoRut").text("Rut ingresado correctamente.");
+        $("#parrafoRut").css({
+            "color":"green",
+            "fontSize":"10px"
+        });
+        $("#rutId").removeClass("is-invalid").addClass("is-valid");
+    } else {
+        $("#parrafoRut").text("Rut no válido.");
+        $("#parrafoRut").css({
+            "color":"red",
+            "fontSize":"10px"   
+        }); 
+        $("#rutId").removeClass("is-valid").addClass("is-invalid");
+    }
+});
