@@ -10,6 +10,17 @@
     margin-bottom: 50px;
 }
 
+.fotopie{
+    width: 20%;
+    margin-top: 50px;
+    margin-left: 150px;
+    margin-bottom: 50px;
+}
+
+.disp{
+    overflow-x: hidden;
+}
+
 .t1{
     color: white; 
     text-align: center;
