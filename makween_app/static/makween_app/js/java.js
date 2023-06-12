@@ -115,3 +115,6 @@ $("#correoLoginId").keyup(function(){
         $("#correoLoginId").removeClass("is-valid").addClass("is-invalid");
       }    
 });
+
+//validacion del rut
+//HACER YA QUE GIT ME LO BORRO :(
