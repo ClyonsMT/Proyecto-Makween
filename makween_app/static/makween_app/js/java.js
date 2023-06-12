@@ -71,3 +71,48 @@ $("#contraseñaId").keyup(function(){
         $("#contraseñaId").removeClass("is-invalid").addClass("is-valid");
     }
 });
+
+//Validaciones para el formulario de contacto
+
+//Validación del correo
+$("#correoIdEmailCont").keyup(function(){
+    var correo = $("#correoIdEmailCont").val();
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (regex.test(correo)) {
+        $("#emailIdCon").text("Correo electrónico ingresado correctamente.");
+        $("#emailIdCon").css({
+            "color":"green",
+            "fontSize":"10px"
+        });
+        $("#correoIdEmailCont").removeClass("is-invalid").addClass("is-valid");
+    } else {
+        $("#emailIdCon").text("Correo electrónico erróneo.");
+        $("#emailIdCon").css({
+            "color":"red",
+            "fontSize":"10px"   
+        }); 
+        $("#correoIdEmailCont").removeClass("is-valid").addClass("is-invalid");
+    }    
+});
+
+//Validacion del rut
+$("#rutId").blur(function(){
+    var rut = $("#rutId").val();
+    const formatoRut = rut.replace(/^(\d{1,2})(\d{3})(\d{3})([\dkK])?$/, '$1.$2.$3-$4');
+    $("#rutId").val(formatoRut);
+    if (formatoRut.test(rut)) {
+        $("#parrafoRut").text("Rut ingresado correctamente.");
+        $("#parrafoRut").css({
+            "color":"green",
+            "fontSize":"10px"
+        });
+        $("#rutId").removeClass("is-invalid").addClass("is-valid");
+    } else {
+        $("#parrafoRut").text("Rut no válido.");
+        $("#parrafoRut").css({
+            "color":"red",
+            "fontSize":"10px"   
+        }); 
+        $("#rutId").removeClass("is-valid").addClass("is-invalid");
+    }
+});

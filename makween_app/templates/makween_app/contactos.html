@@ -5,5 +5,47 @@
 {% endblock %}
 
 {% block contenido %}
-<h1 class="text-center">HOLA contacto</h1>
+<!-- banner contacto -->
+<div class="d-flex justify-content-center fondo_cont">
+    <div class="row">
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+            <a href="tel: 22354 0700"><img src="https://cdn.icon-icons.com/icons2/1271/PNG/512/1497554805-social-media05_84877.png" alt=""></a>
+        </div>
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+            <p class="text-align-center fw-bold letra_cont">Contactanos ante cualquier inconveniente</p>
+        </div>
+    </div>
+</div>
+
+<!-- Formulario Contacto -->
+<div class="caja d-flex align-items-center flex-column">
+    <h1 class="text-center" style="font-variant: small-caps; color: white;">Respondemos en 24 horas hábiles</h1>
+    <br><br>
+    <form class="formulario">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="correoIdEmailCont" aria-describedby="emailHelp">
+          <p id="emailIdCon"></p>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Nombre y apellidos</label>
+          <input type="text" class="form-control" id="nombreId">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Rut</label>
+            <input type="text" class="form-control" id="rutId" maxlength="12">
+            <p id="parrafoRut"></p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Teléfono</label>
+            <input type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mensaje (opcional)</label>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    <br>
+</div>
 {% endblock %}

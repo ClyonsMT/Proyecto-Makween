@@ -28,6 +28,32 @@
     margin-bottom: 50px;
 }
 
+/*estilos contacto*/
+.fondo_cont {
+    background-color: antiquewhite;
+    overflow: hidden;
+}
+
+.letra_cont {
+    font-size: 30px;
+}
+
+.caja {
+    background: url(../img/contacto.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+}
+
+.formulario {
+    width: 40%;
+    height: 100%;
+    padding: 40px;
+    border-radius: 3%;
+    background-color: rgb(247, 170, 169);
+    border: 2px solid rgb(182, 28, 28);
+}
+
 @media(max-width:769px){
     .t1{
         margin-left: 30%;
@@ -36,6 +62,15 @@
 
     .fotocar{
         margin-left: 30%;
+    }
+
+    /*estilos contacto*/
+    .letra_cont {
+        font-size: 15px;
+    }
+
+    .formulario {
+        width: 100%;
     }
 }
 
