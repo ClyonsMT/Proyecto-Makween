@@ -73,6 +73,27 @@ $("#contraseñaId").keyup(function(){
     }
 });
 
+//validacion de confirmar su contraseña
+$("#confirmarContraseñaId").keyup(function(){
+    var password = $("#contraseñaId").val();
+    var confirmPassword = $("#confirmarContraseñaId").val();
+    if (password !== confirmPassword) {
+        $("#parrafoConfirmarId").text("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
+        $("#parrafoConfirmarId").css({
+            "color": "red",
+            "fontSize": "10px"
+        });
+        $("#confirmarContraseñaId").removeClass("is-valid").addClass("is-invalid");
+    } else {
+        $("#parrafoConfirmarId").text("Las contraseñas coinciden.");
+        $("#parrafoConfirmarId").css({
+            "color": "green",
+            "fontSize": "10px"
+        });
+        $("#confirmarContraseñaId").removeClass("is-invalid").addClass("is-valid");
+    }
+});
+
 //validaciones login
 //validacion correo
 $("#correoLoginId").keyup(function(){
