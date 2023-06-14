@@ -11,10 +11,7 @@
 }
 
 .fotopie{
-    width: 20%;
-    margin-top: 50px;
-    margin-left: 150px;
-    margin-bottom: 50px;
+    width: 18%;
 }
 
 .disp{
@@ -113,6 +110,11 @@
 }
 .texto{
     color: aliceblue;
+    font-weight: bolder;
+    font-variant: small-caps;
+}
+.textoFooter{
+    color: rgb(0, 0, 0);
     font-weight: bolder;
     font-variant: small-caps;
 }
