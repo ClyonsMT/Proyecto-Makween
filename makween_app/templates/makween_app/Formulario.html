@@ -1,0 +1,57 @@
+{% extends 'makween_app/base.html' %}
+
+{% block contenido %}
+<!-- form -->
+<script>
+    function mostrarImagen(event) {
+      var archivo = event.target.files[0];
+      var lector = new FileReader();
+      
+      lector.onload = function(event) {
+        var imagenPreview = document.getElementById("imagen-preview");
+        imagenPreview.src = event.target.result;
+      };
+      
+      lector.readAsDataURL(archivo);
+    }
+</script>
+
+    <div class="miau d-flex align-items-center flex-column">
+        <h1 class="text-center" style="font-variant: small-caps; color: white;">Formulario de atencion de cliente</h1>
+        <br><br>
+        <form class="formulario">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Correo electrónico Mecanico</label>
+              <input type="email" class="form-control" id="correoIdEmailCont" aria-describedby="emailHelp">
+              <p id="emailIdCon"></p>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Nombre y apellidos del Mecanico</label>
+              <input type="text" class="form-control" id="nombreId">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nombre Cliente</label>
+                <input type="text" class="form-control" id="rutId" maxlength="50">
+                <p id="parrafoRut"></p>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Teléfono Cliente</label>
+                <input type="number" class="form-control" maxlength="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Descripcion de Atencion </label>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+            <div>
+                <input type="file" accept="image/*" onchange="mostrarImagen(event)"> 
+            
+                <img id="imagen-preview" src="" alt="" style="width: 100%;" >
+            </div>
+            <br>
+            <div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+        <br>
+    </div>
+    {% endblock %}

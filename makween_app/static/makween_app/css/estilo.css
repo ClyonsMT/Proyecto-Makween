@@ -84,6 +84,12 @@
         width: 100%;
     }
 }
+.miau {
+    background: url(../img/miau.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+}
 
 /*estilos login y registro*/
 .bordes{
