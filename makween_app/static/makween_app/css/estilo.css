@@ -11,10 +11,7 @@
 }
 
 .fotopie{
-    width: 20%;
-    margin-top: 50px;
-    margin-left: 150px;
-    margin-bottom: 50px;
+    width: 18%;
 }
 
 .disp{
@@ -63,6 +60,19 @@
     border-radius: 3%;
     background-color: rgb(247, 170, 169);
     border: 2px solid rgb(182, 28, 28);
+}
+
+/*Estilos nosotros*/
+.fondo_mec {
+    background: url(https://i.pinimg.com/originals/a0/12/d4/a012d45a50326ffc1f2ec8dd76cb5172.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.caja_mec {
+    background-color: antiquewhite;
+    padding: 30px;
 }
 
 @media(max-width:769px){
@@ -119,6 +129,11 @@
 }
 .texto{
     color: aliceblue;
+    font-weight: bolder;
+    font-variant: small-caps;
+}
+.textoFooter{
+    color: rgb(0, 0, 0);
     font-weight: bolder;
     font-variant: small-caps;
 }
