@@ -9,7 +9,7 @@
 <div class="d-flex justify-content-center fondo_cont">
     <div class="row">
         <div class="col-12 col-md-6 d-flex justify-content-center">
-            <a href="tel: 22354 0700"><img src="https://cdn.icon-icons.com/icons2/1271/PNG/512/1497554805-social-media05_84877.png" alt=""></a>
+            <a href="tel: 22354 0700"><img src="https://cdn.icon-icons.com/icons2/1271/PNG/512/1497554805-social-media05_84877.png" alt="" width="450px"></a>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
             <p class="text-align-center fw-bold letra_cont">Contactanos ante cualquier inconveniente</p>
@@ -29,20 +29,22 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Nombre y apellidos</label>
-          <input type="text" class="form-control" id="nombreId">
+          <input type="text" class="form-control" id="nombreIdCont">
+          <p id="pNombreCont"></p>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Rut</label>
+            <label for="exampleInputPassword1" class="form-label">Rut (sin puntos ni guión)</label>
             <input type="text" class="form-control" id="rutId" maxlength="12">
             <p id="parrafoRut"></p>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Teléfono</label>
-            <input type="number" class="form-control">
+        <label for="exampleInputPassword1" class="form-label">Teléfono</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">+ 56</span>
+            <input type="number" class="form-control" placeholder="Solo 9 dígitos" aria-label="Solo 9 dígitos" aria-describedby="basic-addon1" id="numeroIdCont">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Mensaje (opcional)</label>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <label for="exampleInputPassword1" class="form-label">Mensaje</label>
+            <textarea class="form-control" aria-label="With textarea" id="mensajeCont" placeholder="Debe contener al menos 30 caracteres"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
