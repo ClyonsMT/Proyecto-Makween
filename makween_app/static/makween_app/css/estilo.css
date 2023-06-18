@@ -73,6 +73,18 @@
 .caja_mec {
     background-color: antiquewhite;
     padding: 30px;
+    border-radius: 5%;
+    height: 100%;
+}
+
+.img_mecanico {
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.texto_mec {
+    font-weight: bold;
 }
 
 @media(max-width:769px){
@@ -93,6 +105,12 @@
     .formulario {
         width: 100%;
     }
+
+    /*Estilos nosotros*/
+    .foto_contacto {
+        width: 200px;
+    }
+
 }
 .miau {
     background: url(../img/miau.jpg);
