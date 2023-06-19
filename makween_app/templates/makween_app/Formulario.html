@@ -1,6 +1,9 @@
 {% extends 'makween_app/base.html' %}
 
 {% block contenido %}
+
+{% load static %}
+
 <!-- form -->
 <script>
     function mostrarImagen(event) {
@@ -17,30 +20,27 @@
 </script>
 
     <div class="miau d-flex align-items-center flex-column">
-        <h1 class="text-center" style="font-variant: small-caps; color: white;">Formulario de atencion de cliente</h1>
+        <h1 class="text-center" style="font-variant: small-caps; color: white;">Agregar atencion de cliente</h1>
         <br><br>
         <form class="formulario">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Correo electrónico Mecanico</label>
-              <input type="email" class="form-control" id="correoIdEmailCont" aria-describedby="emailHelp">
-              <p id="emailIdCon"></p>
+                <label for="exampleInputPassword1" class="form-label">Nombre completo del Cliente</label>
+                <input type="text" class="form-control" id="nombreIdCont" maxlength="50">
+                <p id="pNombreCont"></p>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Nombre y apellidos del Mecanico</label>
-              <input type="text" class="form-control" id="nombreId">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Nombre Cliente</label>
-                <input type="text" class="form-control" id="rutId" maxlength="50">
+                <label for="exampleInputPassword1" class="form-label">Rut del cliente (sin puntos ni guión)</label>
+                <input type="text" class="form-control" id="rutId" maxlength="12">
                 <p id="parrafoRut"></p>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Teléfono Cliente</label>
-                <input type="number" class="form-control" maxlength="">
+            <label for="exampleInputPassword1" class="form-label">Teléfono</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">+ 56</span>
+                <input type="number" class="form-control" placeholder="Solo 9 dígitos" aria-label="Solo 9 dígitos" aria-describedby="basic-addon1" id="numeroIdCont">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Descripcion de Atencion </label>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <label for="exampleInputPassword1" class="form-label">Descripción de la atención</label>
+                <textarea class="form-control" aria-label="With textarea" id="mensajeCont" placeholder="Debe contener al menos 30 caracteres"></textarea>
             </div>
             <div>
                 <input type="file" accept="image/*" onchange="mostrarImagen(event)"> 
