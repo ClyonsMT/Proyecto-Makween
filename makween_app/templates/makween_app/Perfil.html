@@ -1,0 +1,34 @@
+{% extends 'makween_app/base.html' %}
+
+{% block titulo%}
+<title>Makween | Mi perfil</title>
+{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'makween_app/css/estilo.css' %}">
+
+{% block contenido %}
+<!-- form -->
+<body>
+  <section>
+      <div class="contenedor-perfil">
+          <div class="card">
+            <img src="https://static.wikia.nocookie.net/worldofcarsdrivein/images/3/3a/LuigiCars3.png/revision/latest?cb=20220827152442" alt="personas" class="avatar">
+            <div class="banner"></div>
+            <div class="card-body">
+                <h2 class=nombre>Luggy</h2>
+                <span class="rut">21.254.343-3</span>
+                <span class="correo">luggy@gmail.com</span>
+                <span class="usuario">Mecanico</span>
+            </div>
+            <div class="card-numeros">
+                <div>
+                    <h3 class="titulo-numero">Nº Atenciones</h3>
+                    <samp class="numero">35</samp>
+                </div>
+            </div>
+        </div>
+      </div>
+  </section>
+</body>
+{% endblock %}
