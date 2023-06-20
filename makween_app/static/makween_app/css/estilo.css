@@ -87,6 +87,75 @@
     font-weight: bold;
 }
 
+.miau {
+    background: url(../img/miau.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+}
+
+/*estilos login y registro*/
+.bordes{
+    border-style: solid;
+    border-radius: 2%;
+    border-color: rgb(182, 28, 28);
+    background-color: rgb(247, 170, 169);
+    background-size: cover;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+.bordes_login {
+    border-style: solid;
+    border-radius: 5%;
+    border-color: rgb(182, 28, 28);
+    background-color: rgb(247, 170, 169);
+    background-size: cover;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+.login {
+    width: 85%;
+}
+
+.form {
+    width: 90%;
+}
+
+.parrafos{
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+.contenedor{
+    background-image: url('../img/fondo.jpg'); 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: start; 
+    padding: 60px 0;
+}
+
+.texto{
+    color: aliceblue;
+    font-weight: bolder;
+    font-variant: small-caps;
+}
+.textoFooter{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    font-variant: small-caps;
+}
+
 @media(max-width:769px){
     .t1{
         margin-left: 30%;
@@ -111,47 +180,13 @@
         width: 200px;
     }
 
-}
-.miau {
-    background: url(../img/miau.jpg);
-    background-size: cover;
-    background-position: center;
-    padding: 40px 0;
-}
+    /*estilos login*/
+    .bordes {
+        width: 100%;
+    }
 
-/*estilos login y registro*/
-.bordes{
-    border-style: solid;
-    border-radius: 5%;
-    border-color: rgb(182, 28, 28);
-    background-color: rgb(247, 170, 169);
-    background-size: cover;
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    padding: 2px;
-}
-.form {
-    width: 300px;
-}
-.parrafos{
-    font-size: 10px;
-    font-weight: lighter;
-}
-.contenedor{
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
-    align-items: center;
-}
-.texto{
-    color: aliceblue;
-    font-weight: bolder;
-    font-variant: small-caps;
-}
-.textoFooter{
-    color: rgb(0, 0, 0);
-    font-weight: bolder;
-    font-variant: small-caps;
+    .bordes_login {
+        width: 100%;
+    }
+
 }

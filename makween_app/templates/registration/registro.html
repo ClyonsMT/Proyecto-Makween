@@ -1,0 +1,24 @@
+{% extends 'makween_app/base.html' %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+<div class="contenedor">
+  <br><h1 class="text-center texto">Registra usuario en Makween</h1><br>
+          <div class="bordes">
+            <form class="form" method="post">
+                {% csrf_token %}
+                <br>   
+                <h5>Ingresa los siguientes datos:</h5><br>
+                
+                {{ form | crispy }}
+
+                <center><button type="submit" class="btn btn-danger" style="color: black;    border-bottom-color:black ;
+                    border-top-color:black ;
+                    border-left-color:black ;
+                    border-right-color:black ;">Registrar</button>
+                </center>
+                <br>
+              </form>
+          </div>  
+</div>
+{% endblock %}
