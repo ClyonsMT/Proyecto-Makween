@@ -1,7 +1,7 @@
 # Proyecto Makween empresa mecánica
 ## por 🥏Sun Solutions
 
-✅Repositorio que contiene la pagina web de Sun Makween✅
+✅Repositorio que contiene la pagina web de Makween✅
 
 Una vez cargado el proyecto en su pc, ejecute lo siguiente:
 
