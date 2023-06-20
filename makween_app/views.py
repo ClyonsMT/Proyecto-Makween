@@ -18,3 +18,6 @@ def registro(request):
 
 def formulario(request):
     return render(request, 'makween_app/formulario.html')
+
+def Perfil(request):
+    return render(request, 'makween_app/Perfil.html')
