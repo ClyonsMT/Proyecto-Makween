@@ -10,25 +10,27 @@
 {% block contenido %}
 <!-- form -->
 <body>
-  <section>
-      <div class="contenedor-perfil">
-          <div class="card">
-            <img src="https://static.wikia.nocookie.net/worldofcarsdrivein/images/3/3a/LuigiCars3.png/revision/latest?cb=20220827152442" alt="personas" class="avatar">
+
+    <div class="contenedor-perfil">
+        <div class="card">  
+            <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" alt="personas" class="avatar">
             <div class="banner"></div>
             <div class="card-body">
-                <h2 class=nombre>Luggy</h2>
-                <span class="rut">21.254.343-3</span>
-                <span class="correo">luggy@gmail.com</span>
-                <span class="usuario">Mecanico</span>
+                <h2 class=nombre>{{user.first_name}} {{user.last_name}}</h2>
+                <span class="correo">{{user.email}}</span>
+                <span class="usuario">Administrador</span>
             </div>
             <div class="card-numeros">
-                <div>
+                <div class="numero">
                     <h3 class="titulo-numero">Nº Atenciones</h3>
-                    <samp class="numero">35</samp>
+                    <samp class="numero">0</samp>
+                </div>
+                <div class="boton">
+                    <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
-      </div>
-  </section>
+    </div>
+
 </body>
 {% endblock %}
