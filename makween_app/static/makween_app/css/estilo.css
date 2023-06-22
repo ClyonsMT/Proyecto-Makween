@@ -200,6 +200,8 @@
 
 .texto{
     color: aliceblue;
+    background-color: #021C50;
+    padding: 5px;
     font-weight: bolder;
     font-variant: small-caps;
 }

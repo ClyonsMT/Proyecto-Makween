@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
-LOGIN_REDIRECT_URL = '/formulario/'
+LOGIN_REDIRECT_URL = '/Perfil/'
 LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -37,6 +37,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +47,10 @@ INSTALLED_APPS = [
     'makween_app',
     'crispy_forms',
     'crispy_bootstrap5',
+    'colorfield',
 ]
+
+X_FRAME_OPTIONS= 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

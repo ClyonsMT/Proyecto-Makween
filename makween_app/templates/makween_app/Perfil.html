@@ -18,7 +18,7 @@
             <div class="card-body">
                 <h2 class=nombre>{{user.first_name}} {{user.last_name}}</h2>
                 <span class="correo">{{user.email}}</span>
-                <span class="usuario">Administrador</span>
+                <span class="usuario">{{user.groups.all.0.name}}</span>
             </div>
             <div class="card-numeros">
                 <div class="numero">
