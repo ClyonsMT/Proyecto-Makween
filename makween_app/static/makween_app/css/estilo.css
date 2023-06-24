@@ -1,3 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800;900&display=swap');
+/*Estilos carrusel y home*/
+.fondo_home {
+    background: url(../img/baner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 450px;
+}
+
+.letra_cont_home {
+    font-family: 'Roboto Slab', serif;
+    font-size: 33px;
+    color: white;
+    background-color: #CD6155;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#slider {
+    background: url(https://w0.peakpx.com/wallpaper/638/224/HD-wallpaper-audi-interior-auto-awesome-black-car-cool-dark-nice.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-color: rgb(191, 190, 190);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor_carrusel {
+    width: 1600px;
+    margin: auto;
+}
+
+.subcontenedor_carrusel {
+    width: 85%;
+    margin: auto;
+}
+
+.slide-img {
+    width: 100%;
+    height: 275px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.slide-img:hover {
+    box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.9) inset;
+}
+
+.slide-img a {
+    opacity: 0;
+    text-decoration: none;
+    transform: scale(0);
+    transition: 0.8s;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.slide-img:hover a {
+    opacity: 1;
+    transform: scale(1);
+}
+
+button.tns-font-awsome {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    background: none;
+    color: #000;
+}
+button.tns-font-awsome:hover {
+    color: #FFD700;
+    cursor: pointer;
+}
+
 /*Navbar*/
 .opcion {
     font-size: 20px;
@@ -137,6 +224,16 @@
     background-repeat: no-repeat; 
     background-position: center; 
     background-size: cover; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: start; 
+    padding: 60px 0;
+}
+
+.contenedor_registro {
+    background-color: #7FB3D5;
     height: 100%; 
     display: flex; 
     flex-direction: column;
@@ -308,6 +405,14 @@
 }
 .numero{
     font-size: 30px;
+}
+
+@media(max-width: 1600px) {
+    
+    .contenedor_carrusel {
+        width: 100%;
+    }
+
 }
 
 @media(max-width:769px){

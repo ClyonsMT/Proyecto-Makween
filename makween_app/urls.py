@@ -10,4 +10,5 @@ urlpatterns = [
     path('formulario/', formulario, name="formulario"),
     path('Perfil/', Perfil, name="Perfil"),
     path('atenciones/', atenciones, name="atenciones"),
+    path('guardar/', guardar, name="guardar"),
 ]

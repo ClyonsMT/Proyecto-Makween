@@ -22,8 +22,13 @@
             </div>
             <div class="card-numeros">
                 <div class="numero">
-                    <h3 class="titulo-numero">Nº Atenciones</h3>
-                    <samp class="numero">0</samp>
+                    {% if user.groups.all.0.name == 'Mecánico/ca' %}
+                    <h3 class="titulo-numero">Atenciones enviadas</h3>
+                    <samp class="numero">{{atenciones}}</samp>
+                    {% else %}
+                    <h3 class="titulo-numero">Usuarios registrados</h3>
+                    <samp class="numero">{{usuarios}}</samp>
+                    {% endif %}
                 </div>
                 <div class="boton">
                     <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>

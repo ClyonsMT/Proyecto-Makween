@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.contrib import messages
+from .models import Atencion, Estado_atencion, Categoria
+from django.contrib.auth.models import User
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
@@ -52,5 +54,43 @@ def atenciones(request):
 def formulario(request):
     return render(request, 'makween_app/formulario.html')
 
+def guardar(request):
+    usuario = request.user
+    id_mec = usuario.id
+    nombre_mecanico = usuario.first_name
+    nombre_cli = request.POST["nombre"]
+    rut = request.POST["rut"]
+    telefono = request.POST["telefono"]
+    descripcion = request.POST["descripcion"]
+    fecha = request.POST["fecha"]
+    imagen = request.FILES["imagen"]
+    categoria_ate = Categoria.objects.get(pk=request.POST['categoria'])
+    print(categoria_ate)
+    estado_atencion = Estado_atencion.objects.get(nombre="Pendiente")
+
+    objetoAtencion = Atencion.objects.create(
+        id_mecanico = id_mec,
+        nombre_mecanico = nombre_mecanico,
+        nombre_cli = nombre_cli,
+        rut = rut,
+        telefono_cliente = telefono,
+        fecha = fecha,
+        descripcion = descripcion,
+        imagen = imagen,
+        categoria = categoria_ate,
+        estado = estado_atencion
+    )
+    objetoAtencion.save()
+    messages.success(request, 'Atención registrada exitosamente')
+    return render(request, 'makween_app/formulario.html')
+
+
 def Perfil(request):
-    return render(request, 'makween_app/Perfil.html')
+    usuario = request.user
+    atenciones = Atencion.objects.filter(id_mecanico=usuario.id).count()
+    usuarios_registrados = User.objects.all().count()
+    data = {
+        "atenciones" : atenciones,
+        "usuarios" : usuarios_registrados
+    }
+    return render(request, 'makween_app/Perfil.html', data)
