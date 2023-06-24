@@ -1,127 +1,16 @@
-//validaciones registro
-//validacion nombre
-$("#nombreId").keyup(function(){
-    var cantidad = $("#nombreId").val().length;
-    if(cantidad < 5 || cantidad > 50){
-        if(cantidad < 5){
-            $("#parrafoId").text("Debe ingresar al menos 5 caracteres.");
-            $("#parrafoId").css({
-                "color":"red",
-                "fontSize":"10px"
-            });
-            $("#nombreId").removeClass("is-valid").addClass("is-invalid");
-        }else{
-            $("#parrafoId").text("Debe ingresar hasta 50 caracteres.");
-            $("#parrafoId").css({  
-                "color":"red",
-                "fontSize":"10px"
-            });
-            $("#nombreId").removeClass("is-valid").addClass("is-invalid");
-        }
-    }else{
-        $("#parrafoId").text("Nombre agregado correctamente.");
-        $("#parrafoId").css({   
-            "color":"green",
-            "fontSize":"10px"});
-        $("#nombreId").removeClass("is-invalid").addClass("is-valid");
-    }
-});
-
-//validacion correo
-$("#correoId").keyup(function(){
-    var correo = $("#correoId").val();
-    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (regex.test(correo)) {
-        $("#parrafoId1").text("Correo electrónico ingresado correctamente.");
-        $("#parrafoId1").css({
-            "color":"green",
-            "fontSize":"10px"
-        });
-        $("#correoId").removeClass("is-invalid").addClass("is-valid");
-      } else {
-        $("#parrafoId1").text("Correo electrónico erróneo.");
-        $("#parrafoId1").css({
-            "color":"red",
-            "fontSize":"10px"   
-        });
-        $("#correoId").removeClass("is-valid").addClass("is-invalid");
-      }    
-});
-
-//validacion contraseña
-$("#contraseñaId").keyup(function(){
-    var pass = $("#contraseñaId").val();
-    var hasUpperCase = /[A-Z]/.test(pass);
-    var hasLowerCase = /[a-z]/.test(pass);
-    var hasNumber = /\d/.test(pass);
-    var hasSpecialChar = /[!@#$%^&*]/.test(pass);
-    var isValid = pass.length >= 6 && pass.length <= 12 && hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar;
-    if (!isValid) {
-        $("#parrafoId2").text("La contraseña debe tener entre 6 y 12 caracteres y debe incluir una mayúscula, una minúscula, al menos un número y un caracter especial (!@#$%^&*).");
-        $("#parrafoId2").css({
-            "color":"red",
-            "fontSize":"10px"
-        });
-        $("#contraseñaId").removeClass("is-valid").addClass("is-invalid");
-    } else {
-        $("#parrafoId2").text("Contraseña agregada correctamente.");
-        $("#parrafoId2").css({
-            "color":"green",
-            "fontSize":"10px"
-        });
-        $("#contraseñaId").removeClass("is-invalid").addClass("is-valid");
-    }
-});
-
-//validacion de confirmar su contraseña
-$("#confirmarContraseñaId").keyup(function(){
-    var password = $("#contraseñaId").val();
-    var confirmPassword = $("#confirmarContraseñaId").val();
-    if (password !== confirmPassword) {
-        $("#parrafoConfirmarId").text("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
-        $("#parrafoConfirmarId").css({
-            "color": "red",
-            "fontSize": "10px"
-        });
-        $("#confirmarContraseñaId").removeClass("is-valid").addClass("is-invalid");
-    } else {
-        $("#parrafoConfirmarId").text("Las contraseñas coinciden.");
-        $("#parrafoConfirmarId").css({
-            "color": "green",
-            "fontSize": "10px"
-        });
-        $("#confirmarContraseñaId").removeClass("is-invalid").addClass("is-valid");
-    }
-});
-
-//validaciones login
-//validacion correo
-$("#correoLoginId").keyup(function(){
-    var correoLogin = $("#correoLoginId").val();
-    var regexLogin = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (regexLogin.test(correoLogin)) {
-        $("#parrafoLoginId").text("Correo electrónico válido.");
-        $("#parrafoLoginId").css({
-            "color":"green",
-            "fontSize":"10px"
-        });
-        $("#correoLoginId").removeClass("is-invalid").addClass("is-valid");
-      } else {
-        $("#parrafoLoginId").text("Correo electrónico erróneo.");
-        $("#parrafoLoginId").css({
-            "color":"red",
-            "fontSize":"10px"   
-        });
-        $("#correoLoginId").removeClass("is-valid").addClass("is-invalid");
-      }    
-});
-
 //-----------------------------Validaciones del forlulario de contacto-------------------------------
+var correo = false
+var nombreContacto = false
+var rutContacto = false
+var telefonoContacto = false
+var mensaje = false
+
 //Correo electrónico
 $("#correoIdEmailCont").keyup(function(){
     var correoLogin = $("#correoIdEmailCont").val();
     var regexLogin = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (regexLogin.test(correoLogin)) {
+        correo = true
         $("#emailIdCon").text("Correo electrónico válido.");
         $("#emailIdCon").css({
             "color":"green",
@@ -129,13 +18,20 @@ $("#correoIdEmailCont").keyup(function(){
         });
         $("#correoIdEmailCont").removeClass("is-invalid").addClass("is-valid");
       } else {
+        correo = false
         $("#emailIdCon").text("Correo electrónico erróneo.");
         $("#emailIdCon").css({
             "color":"red",
             "fontSize":"10px"   
         });
         $("#correoIdEmailCont").removeClass("is-valid").addClass("is-invalid");
-      }    
+    }  
+    
+    if(correo && nombreContacto && rutContacto && telefonoContacto && mensaje) {
+        $("#btnContacto").attr("disabled", false)
+    } else {
+        $("#btnContacto").attr("disabled", true)
+    }
 });
 
 //Nombre y apellidos
@@ -143,6 +39,7 @@ $("#nombreIdCont").keyup(function(){
     var cantidad = $("#nombreIdCont").val().length;
     if(cantidad < 10 || cantidad > 50){
         if(cantidad < 10){
+            nombreContacto = false
             $("#pNombreCont").text("Debe ingresar al menos 10 caracteres.");
             $("#pNombreCont").css({
                 "color":"red",
@@ -150,6 +47,7 @@ $("#nombreIdCont").keyup(function(){
             });
             $("#nombreIdCont").removeClass("is-valid").addClass("is-invalid");
         }else{
+            nombreContacto = false
             $("#pNombreCont").text("Debe ingresar hasta 50 caracteres.");
             $("#pNombreCont").css({  
                 "color":"red",
@@ -158,11 +56,18 @@ $("#nombreIdCont").keyup(function(){
             $("#nombreIdCont").removeClass("is-valid").addClass("is-invalid");
         }
     }else{
+        nombreContacto = true
         $("#pNombreCont").text("Nombre y apellidos agregados correctamente.");
         $("#pNombreCont").css({   
             "color":"green",
             "fontSize":"10px"});
         $("#nombreIdCont").removeClass("is-invalid").addClass("is-valid");
+    }
+
+    if(correo && nombreContacto && rutContacto && telefonoContacto && mensaje) {
+        $("#btnContacto").attr("disabled", false)
+    } else {
+        $("#btnContacto").attr("disabled", true)
     }
 });
 
@@ -183,6 +88,7 @@ $("#rutId").blur(function(){
     const formatoRut = /(\d{1,3}(?:\.\d{1,3}){2}-[\dkK])|(\d{8}[-][\dkK])/;
     rut = formatearRut(rut);
     if (formatoRut.test(rut) && largo == 9) {
+        rutContacto = true
         $("#rutId").val(rut);
         $("#parrafoRut").text("Rut ingresado correctamente.");
         $("#parrafoRut").css({
@@ -191,6 +97,7 @@ $("#rutId").blur(function(){
         });
         $("#rutId").removeClass("is-invalid").addClass("is-valid");
     } else {
+        rutContacto = false
         $("#parrafoRut").text("Rut no válido");
         $("#parrafoRut").css({
             "color":"red",
@@ -198,15 +105,29 @@ $("#rutId").blur(function(){
         }); 
         $("#rutId").removeClass("is-valid").addClass("is-invalid");
     }
+
+    if(correo && nombreContacto && rutContacto && telefonoContacto && mensaje) {
+        $("#btnContacto").attr("disabled", false)
+    } else {
+        $("#btnContacto").attr("disabled", true)
+    }
 });
 
 //Numero de telefono
 $("#numeroIdCont").keyup(function(){
     var largo = $("#numeroIdCont").val().length;
     if (largo == 9) {
+        telefonoContacto = true
         $("#numeroIdCont").removeClass("is-invalid").addClass("is-valid");
     } else {
+        telefonoContacto = false
         $("#numeroIdCont").removeClass("is-valid").addClass("is-invalid");
+    }
+
+    if(correo && nombreContacto && rutContacto && telefonoContacto && mensaje) {
+        $("#btnContacto").attr("disabled", false)
+    } else {
+        $("#btnContacto").attr("disabled", true)
     }
 });
 
@@ -214,11 +135,132 @@ $("#numeroIdCont").keyup(function(){
 $("#mensajeCont").keyup(function(){
     var largo = $("#mensajeCont").val().length;
     if (largo >= 30) {
+        mensaje = true
         $("#mensajeCont").removeClass("is-invalid").addClass("is-valid");
     } else {
+        mensaje = false
         $("#mensajeCont").removeClass("is-valid").addClass("is-invalid");
     }
+
+    if(correo && nombreContacto && rutContacto && telefonoContacto && mensaje) {
+        $("#btnContacto").attr("disabled", false)
+    } else {
+        $("#btnContacto").attr("disabled", true)
+    }
 });
+
+//--------------------------Validaciones formulario de atención-----------------------------------
+//variables para boton
+var nombre = false
+var v_rut = false
+var telefono = false
+var descripcion = false
+
+//Nombre y apellidos
+$("#nombreIdAte").keyup(function(){
+    var cantidad = $("#nombreIdAte").val().length;
+    if(cantidad < 10 || cantidad > 50){
+        if(cantidad < 10){
+            nombre = false
+            $("#pNombreAte").text("Debe ingresar al menos 10 caracteres.");
+            $("#pNombreAte").css({
+                "color":"red",
+                "fontSize":"10px"
+            });
+            $("#nombreIdAte").removeClass("is-valid").addClass("is-invalid");
+        }else{
+            nombre = false
+            $("#pNombreAte").text("Debe ingresar hasta 50 caracteres.");
+            $("#pNombreAte").css({  
+                "color":"red",
+                "fontSize":"10px"
+            });
+            $("#nombreIdAte").removeClass("is-valid").addClass("is-invalid");
+        }
+    }else{
+        nombre = true
+        $("#pNombreAte").text("Nombre y apellidos agregados correctamente.");
+        $("#pNombreAte").css({   
+            "color":"green",
+            "fontSize":"10px"});
+        $("#nombreIdAte").removeClass("is-invalid").addClass("is-valid");
+    }
+
+    if(nombre && v_rut && telefono && descripcion) {
+        $("#btnAtencion").attr("disabled", false)
+    } else {
+        $("#btnAtencion").attr("disabled", true)
+    }
+});
+
+//Rut
+$("#rutIdAte").blur(function(){
+    var rut = $("#rutIdAte").val();
+    var largo = $("#rutIdAte").val().length;
+    const formatoRut = /(\d{1,3}(?:\.\d{1,3}){2}-[\dkK])|(\d{8}[-][\dkK])/;
+    rut = formatearRut(rut);
+    if (formatoRut.test(rut) && largo == 9) {
+        v_rut = true
+        $("#rutIdAte").val(rut);
+        $("#parrafoRutAte").text("Rut ingresado correctamente.");
+        $("#parrafoRutAte").css({
+            "color":"green",
+            "fontSize":"10px"
+        });
+        $("#rutIdAte").removeClass("is-invalid").addClass("is-valid");
+    } else {
+        v_rut = false
+        $("#parrafoRutAte").text("Rut no válido");
+        $("#parrafoRutAte").css({
+            "color":"red",
+            "fontSize":"10px"   
+        }); 
+        $("#rutIdAte").removeClass("is-valid").addClass("is-invalid");
+    }
+
+    if(nombre && v_rut && telefono && descripcion) {
+        $("#btnAtencion").attr("disabled", false)
+    } else {
+        $("#btnAtencion").attr("disabled", true)
+    }
+});
+
+//Teléfono
+$("#numeroIdAte").keyup(function(){
+    var largo = $("#numeroIdAte").val().length;
+    if (largo == 9) {
+        telefono = true
+        $("#numeroIdAte").removeClass("is-invalid").addClass("is-valid");
+    } else {
+        telefono = false
+        $("#numeroIdAte").removeClass("is-valid").addClass("is-invalid");
+    }
+
+    if(nombre && v_rut && telefono && descripcion) {
+        $("#btnAtencion").attr("disabled", false)
+    } else {
+        $("#btnAtencion").attr("disabled", true)
+    }
+});
+
+//Descripción
+$("#mensajeAte").keyup(function(){
+    var largo = $("#mensajeAte").val().length;
+    if (largo >= 30) {
+        descripcion = true
+        $("#mensajeAte").removeClass("is-invalid").addClass("is-valid");
+    } else {
+        descripcion = false
+        $("#mensajeAte").removeClass("is-valid").addClass("is-invalid");
+    }
+
+    if(nombre && v_rut && telefono && descripcion) {
+        $("#btnAtencion").attr("disabled", false)
+    } else {
+        $("#btnAtencion").attr("disabled", true)
+    }
+});
+
 
 let slider = tns({
     container : ".my-slider",

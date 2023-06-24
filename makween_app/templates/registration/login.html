@@ -6,33 +6,25 @@
 
 {% block contenido %}
 {% load crispy_forms_tags %}
-<div class="contenedor">
-    <h1 class="text-center texto">Ingresa a Makween en línea</h1><br>
-            <div class="bordes_login">
-              <form method="post" class="login">
-                {% csrf_token %}
-                <br>   
-                
-                {{ form | crispy }}
+<div style="height: 85vh;">
+    <div class="contenedor">
+        <h1 class="text-center texto">Ingresa a Makween en línea</h1><br>
+                <div class="bordes_login">
+                <form method="post" class="login">
+                    {% csrf_token %}
+                    <br>   
+                    
+                    {{ form | crispy }}
 
-                <div id="emailHelp" class="form-text">Nunca compartiremos tus datos personales.</div><br>
-                <center><button type="submit" class="btn btn-danger" style="color: black;    border-bottom-color:black ;
-                    border-top-color:black ;
-                    border-left-color:black ;
-                    border-right-color:black ;">Ingresar</button>
-                </center>
-                <br>
-                <!-- 
-                <div>
-                    <div class="mb-3">
-                        <center>
-                            <p>¿Aún no tienes una cuenta?</p>
-                            <a class="text-decoration-none text-dark" href="{% url 'registro' %}"><h5>Regístrate aquí</h5></a>
-                        </center>
-                    </div>
+                    <div id="emailHelp" class="form-text">Nunca compartiremos tus datos personales.</div><br>
+                    <center><button type="submit" class="btn btn-danger" style="color: black;    border-bottom-color:black ;
+                        border-top-color:black ;
+                        border-left-color:black ;
+                        border-right-color:black ;">Ingresar</button>
+                    </center>
+                    <br>  
+                </form>
                 </div>  
-                 -->  
-              </form>
-            </div>  
+    </div>
 </div>
 {% endblock %}

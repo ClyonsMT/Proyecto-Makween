@@ -57,7 +57,7 @@ def formulario(request):
 def guardar(request):
     usuario = request.user
     id_mec = usuario.id
-    nombre_mecanico = usuario.first_name
+    nombre_mecanico = usuario.first_name + " " + usuario.last_name
     nombre_cli = request.POST["nombre"]
     rut = request.POST["rut"]
     telefono = request.POST["telefono"]
