@@ -1,0 +1,91 @@
+{% extends 'makween_app/base.html' %}
+
+{% block titulo %}
+<title>Makween | Atenciones clientes</title>
+{% endblock %}
+
+{% block contenido %}
+<div class="d-flex justify-content-start flex-column fondo_atenciones" style="height: 100vh;">
+    <h1 class="text-center" style="font-variant: small-caps; color: white; padding: 40px 0;">Mensajes recibidos de clientes</h1>
+    <div class="container-sm atenciones_container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Correo</th>
+                <th scope="col">Nombre cliente</th>
+                <th scope="col">Rut cliente</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Iteración de las atenciones de cada mecánico -->
+                {% if contactos %}
+                {% for c in contactos %}
+              <tr>
+                <td>{{c.Correo}}</td>
+                <td>{{c.nombre_completo}}</td>
+                <td>{{c.rut}}</td>
+                <td>{{c.telefono}}</td>
+                <td>
+                    <a data-bs-toggle="modal" data-bs-target="#Modal{{c.id_contacto}}" class="btn btn-secondary">Ver mensaje</a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Eli{{c.id_contacto}}">
+                      Eliminar
+                    </button>
+                </td>
+              </tr>
+              {% endfor %}
+              {% else %}
+              <tr>
+                <td colspan="6">
+                    <div class="alert alert-danger text-center">No hay contactos por revisar</div>
+                </td>
+              </tr>
+              {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% for c in contactos %}
+<!-- Modal : mensaje -->
+<div class="modal fade" id="Modal{{c.id_contacto}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mensaje de {{c.nombre_completo}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{c.mensaje}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Alerta para eliminar -->
+<div class="modal fade" id="Eli{{c.id_contacto}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">¡Cuidado!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex align-items-center justify-content-center gap-3">
+          <box-icon name='error' color="red" size="cssSize" style="width: 100px;"></box-icon>
+          <span>¿Seguro que quieres eliminar? esta acción no se puede deshacer.</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <a href="{% url 'eliminar_contacto' id=c.id_contacto %}" class="btn btn-danger">Si, eliminar</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

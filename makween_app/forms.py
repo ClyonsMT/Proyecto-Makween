@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
+from .models import Atencion, Estado_atencion
 
 class CustomUserCreationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True, label="Nombres")
@@ -22,3 +23,16 @@ class CustomUserCreationForm(UserCreationForm):
           'email',
           'groups',
        ]
+
+class AtencionForm(forms.ModelForm):
+    
+    estado = forms.ModelChoiceField(
+        queryset=Estado_atencion.objects.all(),
+        required=True,
+        label='Aprueba o rechaza la publicación',
+    )
+    descripcion_estado = forms.CharField(widget=forms.Textarea(attrs={'rows': 8}), label="Descripción opcional (si rechaza la publicación, explique por qué lo hizo)", required=False)
+
+    class Meta:
+        model = Atencion
+        fields = ["estado", "descripcion_estado"]

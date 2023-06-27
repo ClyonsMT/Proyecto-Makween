@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    height: 450px;
+    height: 610px;
 }
 
 .letra_cont_home {
@@ -399,6 +399,41 @@ button.tns-font-awsome:hover {
     font-size: 30px;
 }
 
+/*Listado atenciones mecanico*/
+.fondo_atenciones {
+    background: url(../img/fondo_atenciones_mecanico.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.atenciones_container {
+    height: 70vh;
+    background-color: rgb(218, 214, 214);
+    border-radius: 4px;
+    box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+    overflow-y: scroll;
+}
+
+/*Calificacion de atenciones*/
+.caja_calificacion {
+    width: 35%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 3%;
+    background-color: rgb(160, 159, 159);
+    border: 2px solid rgb(81, 81, 81);
+}
+
+@media(min-width: 2000px) {
+    .fondo_home {
+        height: 720px;
+    }
+}
+
 @media(max-width: 1600px) {
     
     .contenedor_carrusel {
@@ -444,4 +479,10 @@ button.tns-font-awsome:hover {
     .card {
         width: 100%;
     }
+
+    /*estilos calificacion*/
+    .caja_calificacion {
+        width: 100%;
+    }
+    
 }

@@ -24,51 +24,22 @@
         <br><br>
         <div class="my-slider">
           <!-- Iteracion de atenciones aprobadas por admin -->
+          {% for a in atenciones_aprobadas %}
           <div>
             <div class="slide">
-              <div class="slide-img" style="background-image: url(../../static/makween_app/img/Auto1.jpg);">
-                <a href="#">Ver detalles</a>
+              <div class="slide-img" style="background-image: url({{a.imagen.url}});">
+                <a data-bs-toggle="modal" data-bs-target="#Modal{{a.id_atencion}}" style="color: rgb(186, 186, 186);">Ver detalles</a>
               </div>
               <div>
-                <h3 class="text-center" style="color: white; padding-top: 5px; font-size: 20px;">Revisión general</h3>
+                <h3 class="text-center" style="color: white; padding-top: 5px; font-size: 20px;">{{a.categoria.nombre}}</h3>
               </div>
             </div>
           </div>
-
-          <div>
-            <div class="slide">
-              <div class="slide-img" style="background-image: url(../../static/makween_app/img/Auto2.jpeg);">
-                <a href="#">Ver detalles</a>
-              </div>
-              <div>
-                <h3 class="text-center" style="color: white; padding-top: 5px; font-size: 20px;">Revisión de aceite</h3>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="slide">
-              <div class="slide-img" style="background-image: url(../../static/makween_app/img/Auto3.jpg);">
-                <a href="#">Ver detalles</a>
-              </div>
-              <div>
-                <h3 class="text-center" style="color: white; padding-top: 5px; font-size: 20px;">Revisión de motor</h3>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="slide">
-              <div class="slide-img" style="background-image: url(https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg);">
-                <a href="#">Ver detalles</a>
-              </div>
-              <div>
-                <h3 class="text-center" style="color: white; padding-top: 5px; font-size: 20px;">Trabajo 4</h3>
-              </div>
-            </div>
-          </div>
-
+          {% endfor %}
         </div>
+      </div>
+
+      <div>
         <ul class="control" id="custom-control" style="list-style: none; display: flex; justify-content: center; gap: 8px; padding: 20px 0;">
           <li class="prev">
             <a class="btn btn-secondary">Anterior</a>
@@ -78,9 +49,33 @@
           </li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
+
+{% for a in atenciones_aprobadas %}
+<!-- Modal : Atenciones -->
+<div class="modal fade" id="Modal{{a.id_atencion}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content" style="background-color: #ce4a4a;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: white;">Detalles de la atención</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <img src="{{a.imagen.url}}" alt="imagen atencion" style="width: 100%; height: 350px; object-fit: cover;">
+          <h2 class="fw-bold" style="color: white;">{{a.categoria.nombre}}</h2>
+          <p style="color: white;">{{a.descripcion}}</p>
+          <span style="margin-top: 10px; color: white;">Fecha atencion: {{a.fecha}}</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
 {% endblock %}
 
 <script src="https://cdn.jsdelivr.net/npm/tiny-slider@2.9.4/dist/min/tiny-slider.min.js"></script>

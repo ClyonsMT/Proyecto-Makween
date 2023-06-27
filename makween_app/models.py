@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Contactos(models.Model):
+    id_contacto = models.AutoField(primary_key=True)
     Correo = models.CharField(max_length=50)
     nombre_completo = models.CharField(max_length=70)
     rut = models.CharField(max_length=70)
@@ -9,11 +10,10 @@ class Contactos(models.Model):
     mensaje = models.TextField()
 
     def __str__(self):
-        return self.rut
+        return self.nombre_completo
     
 class Estado_atencion(models.Model):
     nombre = models.CharField(max_length=80)
-    descripcion = models.TextField(blank=True)
 
     def __str__(self):
         return self.nombre
@@ -37,6 +37,7 @@ class Atencion(models.Model):
     imagen = models.ImageField(upload_to="atenciones", null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, default=0)
     estado = models.ForeignKey(Estado_atencion, on_delete=models.PROTECT)
+    descripcion_estado = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.nombre_cli

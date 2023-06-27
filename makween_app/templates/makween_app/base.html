@@ -42,13 +42,19 @@
 
                     {% if user.groups.all.0.name == 'Administrador/ra' %}
                     <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'contactos_admin' %}"><span style="font-size: 18px; color: white;">Contactos</span></a>
+                    </li>
+                    {% endif %}
+
+                    {% if user.groups.all.0.name == 'Administrador/ra' %}
+                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'registro' %}"><span style="font-size: 18px; color: white;">Registrar</span></a>
                     </li>
                     {% endif %}
 
                     {% if user.groups.all.0.name == 'Administrador/ra' %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'atenciones' %}"><span style="font-size: 18px; color: white;">Atenciones</span></a>
+                        <a class="nav-link" aria-current="page" href="{% url 'atenciones' %}"><span style="font-size: 18px; color: white;">Revisar atenciones</span></a>
                     </li>
                     {% endif %}
 
@@ -57,7 +63,7 @@
                         <a class="nav-link" aria-current="page" href="{% url 'formulario' %}"><span style="font-size: 18px; color: white;">Agregar atención</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#"><span style="font-size: 18px; color: white;">Mis atenciones</span></a>
+                        <a class="nav-link" aria-current="page" href="{% url 'atenciones_mecanico' %}"><span style="font-size: 18px; color: white;">Mis atenciones</span></a>
                     </li>
                     {% endif %}
                     

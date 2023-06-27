@@ -21,30 +21,31 @@
 <div class="caja d-flex align-items-center flex-column">
     <h1 class="text-center" style="font-variant: small-caps; color: white;">Respondemos en 24 horas hábiles</h1>
     <br><br>
-    <form class="formulario">
+    <form class="formulario" action="{% url 'guardar_contacto' %}" method="post">
+        {% csrf_token %}
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-          <input type="email" class="form-control" id="correoIdEmailCont" aria-describedby="emailHelp">
+          <input type="email" name="correo" class="form-control" id="correoIdEmailCont" aria-describedby="emailHelp" required>
           <p id="emailIdCon"></p>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Nombre y apellidos</label>
-          <input type="text" class="form-control" id="nombreIdCont">
+          <input type="text" class="form-control" id="nombreIdCont" name="nombre" required>
           <p id="pNombreCont"></p>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Rut (sin puntos ni guión)</label>
-            <input type="text" class="form-control" id="rutId" maxlength="12">
+            <input type="text" class="form-control" id="rutId" maxlength="12" name="rut" required>
             <p id="parrafoRut"></p>
         </div>
         <label for="exampleInputPassword1" class="form-label">Teléfono</label>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">+ 56</span>
-            <input type="number" class="form-control" placeholder="Solo 9 dígitos" aria-label="Solo 9 dígitos" aria-describedby="basic-addon1" id="numeroIdCont">
+            <input type="number" name="telefono" class="form-control" placeholder="Solo 9 dígitos" aria-label="Solo 9 dígitos" aria-describedby="basic-addon1" id="numeroIdCont" required>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Mensaje</label>
-            <textarea class="form-control" aria-label="With textarea" id="mensajeCont" placeholder="Debe contener al menos 30 caracteres"></textarea>
+            <textarea class="form-control" aria-label="With textarea" name="mensaje" id="mensajeCont" placeholder="Debe contener al menos 30 caracteres" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary" id="btnContacto" disabled>Enviar</button>
     </form>

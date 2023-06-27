@@ -1,0 +1,29 @@
+{% extends 'makween_app/base.html' %}
+
+{% block titulo %}
+<title>Makween | Calificar cliente</title>
+{% endblock %}
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+<div class="d-flex justify-content-center align-items-center" style="height: 100%; background: url(https://img.freepik.com/vector-premium/fondo-engranaje-mecanico_55431-54.jpg); padding: 50px 0;">
+    <div class="caja_calificacion">
+        <form method="post" class="d-flex justify-content-center flex-column" style="width: 100%; height: 100%; padding: 30px;">
+            <h1 class="text-center fs-3 fw-bold" style="font-variant: small-caps; color: white;">Calificando atención</h1>
+            <br>
+            {% csrf_token %}
+            {{ forms | crispy }}
+            <div id="passwordHelpBlock" class="form-text">
+                Una vez calificada la atención no podrá volver a editarla, asegúrate de que introdujiste los campos correctos.
+            </div>
+            <br>
+            <div class="d-flex gap-2">
+                <a href="{% url 'atenciones' %}" class="btn btn-secondary">Volver</a>
+                <button type="submit" class="btn btn-success">Calificar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
