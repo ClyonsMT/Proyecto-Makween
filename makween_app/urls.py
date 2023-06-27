@@ -16,4 +16,5 @@ urlpatterns = [
     path('calificar_atencion/<int:id>/', calificar_atencion, name="calificar_atencion"),
     path('contactos_admin/', contactos_admin, name="contactos_admin"),
     path('eliminar_contacto/<id>', eliminar_contacto, name="eliminar_contacto"),
+    path('busqueda/', busqueda, name="busqueda")
 ]

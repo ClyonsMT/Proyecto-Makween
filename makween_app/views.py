@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm, AtencionForm
 from django.contrib import messages
-from .models import Atencion, Estado_atencion, Categoria, Contactos
+from .models import Atencion, Estado_atencion, Categoria, Contactos, mecanico
 from django.contrib.auth.models import User
 
 from django.contrib.auth.decorators import login_required
@@ -20,7 +20,9 @@ def home(request):
     return render(request, 'makween_app/home.html', data)
 
 def nosotros(request):
-    return render(request, 'makween_app/nosotros.html')
+    mecanicos = mecanico.objects.all()
+    data = {"mecanicos" : mecanicos}
+    return render(request, 'makween_app/nosotros.html', data)
 
 def contactos(request):
     return render(request, 'makween_app/contactos.html')
@@ -180,3 +182,9 @@ def eliminar_contacto(request, id):
     contacto = get_object_or_404(Contactos, id_contacto=id)
     contacto.delete()
     return redirect(to='contactos_admin')
+
+def busqueda(request):
+    q = request.GET["busqueda"]
+    mecanicos = mecanico.objects.filter(nombre__icontains=q)
+    data = {"mecanicos" : mecanicos}
+    return render(request, 'makween_app/nosotros.html', data)

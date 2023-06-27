@@ -76,8 +76,8 @@
 
                     {% else %}
 
-                    <form class="d-flex" id="buscar_mec" style="margin-right: 20px;">
-                        <input class="form-control me-2" type="search" placeholder="Encuentra un mecánico" aria-label="Search" required>
+                    <form class="d-flex" id="buscar_mec" style="margin-right: 20px;" action="{% url 'busqueda' %}">
+                        <input class="form-control me-2" name="busqueda" type="search" placeholder="Encuentra un mecánico" aria-label="Search" required>
                         <button class="btn btn-danger  " type="submit" style="color: white; border-bottom-color: white ;
                         border-top-color: white ;
                         border-left-color: white ;

@@ -24,46 +24,25 @@
 <div class="container_fluid fondo_mec overflow-hidden">
     <br>
     <div class="row d-flex justify-content-center text-center" style="padding-top: 20px; gap: 10px;">
+        {% if mecanicos %}
+        {% for mec in mecanicos %}
+            <div class="col-10 col-md-3">
+                <div class="caja_mec">
+                    <img src="{{mec.imagen.url}}" alt="{{mec.nombre}}" class="img_mecanico">
+                    <span class="texto_mec">{{mec.nombre}}</span>
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
         <div class="col-10 col-md-3">
-            <div class="caja_mec">
-                <img src="https://upload.wikimedia.org/wikipedia/en/f/f7/Mater_%28Cars%29.png" alt="" class="img_mecanico">
-                <span class="texto_mec">Tow Mater</span>
+            <div class="caja_mec" style="background-color: darkred; color: white;">
+                <span class="texto_mec">Mecanico no encontrado</span>
             </div>
         </div>
-        <div class="col-10 col-md-3">
-            <div class="caja_mec">
-                <img src="https://static.wikia.nocookie.net/doblaje/images/8/8b/Sally3.png/revision/latest?cb=20171011015839&path-prefix=es" alt="" class="img_mecanico">
-                <span class="texto_mec">Sally Carrera</span>
-            </div>
+        {% endif %}
         </div>
-        <div class="col-10 col-md-3">
-            <div class="caja_mec">
-                <img src="https://static.wikia.nocookie.net/worldofcarsdrivein/images/3/3a/LuigiCars3.png/revision/latest?cb=20220827152442" alt="" class="img_mecanico">
-                <span class="texto_mec">Luigi</span>
-            </div>
-        </div>
+        <br>
     </div>
-    <br>
-    <div class="row d-flex justify-content-center text-center" style="padding-top: 20px; gap: 10px;">
-        <div class="col-10 col-md-3">
-            <div class="caja_mec">
-                <img src="https://static.wikia.nocookie.net/el-mundo-de-cars/images/b/be/GuidoCars3.png/revision/latest?cb=20230214020705&path-prefix=es" alt="" class="img_mecanico">
-                <span class="texto_mec">Guido</span>
-            </div>
-        </div>
-        <div class="col-10 col-md-3">
-            <div class="caja_mec">
-                <img src="https://static.wikia.nocookie.net/el-mundo-de-cars/images/f/f7/Ramone.png/revision/latest?cb=20230606014038&path-prefix=es" alt="" class="img_mecanico">
-                <span class="texto_mec">Ramón</span>
-            </div>
-        </div>
-        <div class="col-10 col-md-3">
-            <div class="caja_mec">
-                <img src="https://static.wikia.nocookie.net/doblaje/images/6/6b/Flo3.png/revision/latest?cb=20171011022504&path-prefix=es" alt="" class="img_mecanico">
-                <span class="texto_mec">Flo</span>
-            </div>
-        </div>
-    </div>
-    <br><br>
+   
 </div>
 {% endblock %}

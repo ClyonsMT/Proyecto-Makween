@@ -41,3 +41,11 @@ class Atencion(models.Model):
 
     def __str__(self):
         return self.nombre_cli
+    
+class mecanico(models.Model):
+    id_meca = models.AutoField(primary_key=True)
+    nombre = models.CharField(null=False, max_length=100)
+    imagen = models.ImageField(upload_to="mecanico", null=False)
+
+    def __str__(self):
+        return self.nombre
