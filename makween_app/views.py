@@ -83,7 +83,8 @@ def atenciones(request):
 
     return render(request, 'makween_app/atenciones.html', data)
 
-
+@user_passes_test(lambda u: u.groups.filter(name='Administrador/ra').count() == 1, login_url='/accounts/login/')
+@login_required
 def calificar_atencion(request, id):
 
     atencion = get_object_or_404(Atencion, id_atencion=id)
@@ -144,7 +145,7 @@ def guardar(request):
 def Perfil(request):
     usuario = request.user
     atenciones = Atencion.objects.filter(id_mecanico=usuario.id).count()
-    usuarios_registrados = User.objects.all().count()
+    usuarios_registrados = Atencion.objects.filter(estado_id=1).count()
     data = {
         "atenciones" : atenciones,
         "usuarios" : usuarios_registrados

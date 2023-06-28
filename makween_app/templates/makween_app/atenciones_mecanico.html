@@ -71,12 +71,12 @@
             <img src="{{d.imagen.url}}" alt="imagen atencion" style="width: 100%; height: 350px; object-fit: cover;">
             <h2 class="fw-bold" style="color: white;">{{d.categoria.nombre}}</h2>
             <p style="color: white;">{{d.descripcion}}</p>
-            {% if d.descripcion_estado is null %}
-            <span style="margin-top: 10px; color: white; font-size: 15px; font-weight: bold;">Nota del administrador</span>
-            <p style="color: black;">No hay ninguna nota...</p>
-            {% else %}
+            {% if d.descripcion_estado %}
             <span style="margin-top: 10px; color: white; font-size: 15px; font-weight: bold;">Nota del administrador</span>
             <p style="color: white;">{{d.descripcion_estado}}</p>
+            {% else %}
+            <span style="margin-top: 10px; color: white; font-size: 15px; font-weight: bold;">Nota del administrador</span>
+            <p style="color: black;">No hay ninguna nota...</p>
             {% endif %}
         </div>
         <div class="modal-footer">
