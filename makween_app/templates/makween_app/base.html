@@ -136,6 +136,15 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {% if messages %}
         {% for m in messages %}
+            {% if m.tags == 'error' %}
+            <script>
+                Swal.fire({
+                    "title" : "Procedimiento fallido",
+                    "text" : "{{m}}",
+                    "icon" : "error"
+                })
+            </script>
+            {% else %}
             <script>
                 Swal.fire({
                     "title" : "Procedimiento finalizado",
@@ -143,6 +152,7 @@
                     "icon" : "success"
                 })
             </script>
+            {% endif %}
         {% endfor %}
     {% endif %}
 

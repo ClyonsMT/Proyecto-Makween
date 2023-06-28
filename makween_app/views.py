@@ -187,5 +187,9 @@ def eliminar_contacto(request, id):
 def busqueda(request):
     q = request.GET["busqueda"]
     mecanicos = mecanico.objects.filter(nombre__icontains=q)
-    data = {"mecanicos" : mecanicos}
-    return render(request, 'makween_app/nosotros.html', data)
+    if mecanicos:
+        data = {"mecanicos" : mecanicos}
+        return render(request, 'makween_app/nosotros.html', data)
+    else:
+        messages.error(request, 'No se encontró ningun resultado')
+        return redirect(to='home')
